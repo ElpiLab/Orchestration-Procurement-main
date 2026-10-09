@@ -1,17 +1,18 @@
 # TASKS.md
 
-PHASE: 0
-STATUS: ready
+PHASE: 3
+STATUS: done
 
 (0=Bootstrap | 1=Specify | 2=Design | 3=Develop | 4=Validate | 5=Deploy)
 
 ## Current Use Case
 
-docs/specs/UC-[XXX]-[NAME].md
+Supplier quotation PDF to internal order draft
 
 ## Backlog
 
-- docs/specs/UC-[XXX]-[NAME].md
+- Presentation-ready browser UI completed and verified locally
+- Local Docker deployment documented; remote deployment intentionally deferred
 
 ## Working agreement
 

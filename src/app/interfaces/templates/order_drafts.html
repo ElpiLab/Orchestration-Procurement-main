@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Procurement / Draftroom</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="page page--{{MODE}}">
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand__mark">P</span>
+      <span>PROCUREMENT<span class="brand__muted"> / DRAFTROOM</span></span>
+    </a>
+    <div class="topbar__meta"><span class="status-dot"></span> LOCAL POC <span class="meta-divider">•</span> 2026</div>
+  </header>
+
+  <main class="shell">
+    <aside class="intro-panel">
+      <div>
+        <p class="eyebrow">QUOTATION INTELLIGENCE</p>
+        <h1>From supplier PDF<br><em>to a draft worth reviewing.</em></h1>
+        <p class="intro-copy">Extract the important offer details, check the numbers, and keep the final decision with a human.</p>
+      </div>
+      <nav class="steps" aria-label="Workflow">
+        <div class="step step--active"><span>01</span><strong>Upload</strong><small>Bring in the quotation</small></div>
+        <div class="step"><span>02</span><strong>Extract</strong><small>Structure the offer</small></div>
+        <div class="step"><span>03</span><strong>Review</strong><small>Decide what happens next</small></div>
+      </nav>
+      <div class="scope-note"><span class="scope-note__icon">↗</span><span><strong>Human in the loop</strong><br>This demo creates an internal draft only. No order is sent.</span></div>
+    </aside>
+
+    <section class="workspace">
+      <div class="workspace__header">
+        <div><p class="eyebrow eyebrow--light">{{MODE}}</p><h2>{{MODE}}</h2></div>
+        <span class="pill pill--green">● PROCESSING LOCAL</span>
+      </div>
+
+      <section class="card upload-card" data-upload-card>
+        <form action="/order-drafts" method="post" enctype="multipart/form-data" data-upload-form>
+          <label class="dropzone" for="quotation-file">
+            <span class="dropzone__icon">↑</span>
+            <span class="dropzone__title">Drop a quotation PDF here</span>
+            <span class="dropzone__hint">or <u>browse your files</u> · text-based PDF · one file</span>
+            <span class="dropzone__filename" data-file-name>No file selected</span>
+          </label>
+          <input id="quotation-file" name="file" type="file" accept="application/pdf" required>
+          <label class="field-label" for="instructions">OPTIONAL INSTRUCTIONS</label>
+          <textarea id="instructions" name="instructions" rows="2" placeholder="e.g. Highlight anything that needs a buyer's attention"></textarea>
+          <button class="button button--primary" type="submit"><span>Create internal draft</span><span>→</span></button>
+        </form>
+      </section>
+
+      <section class="result-area">
+        <div class="result-heading"><p class="eyebrow eyebrow--light">EXTRACTION RESULT</p><span class="result-heading__line"></span></div>
+        <div class="review-banner"><span class="review-banner__icon">✓</span><span><strong>Ready for human review</strong><small>Extracted data should be checked against the source document.</small></span><span class="pill pill--amber">NEEDS_REVIEW</span></div>
+        <div class="metrics">
+          <div><span>SUPPLIER</span><strong>{{SUPPLIER}}</strong></div>
+          <div><span>REFERENCE</span><strong>{{REFERENCE}}</strong></div>
+          <div><span>CURRENCY</span><strong>{{CURRENCY}}</strong></div>
+          <div><span>TOTAL</span><strong>{{TOTAL}}</strong></div>
+        </div>
+        <div class="table-card">
+          <div class="table-card__header"><h3>Line items</h3><span>EXTRACTED VALUES</span></div>
+          <div class="table-wrap"><table><thead><tr><th>PRODUCT DESCRIPTION</th><th>QTY</th><th>UNIT PRICE</th><th>LINE TOTAL</th></tr></thead><tbody>{{ITEM_ROWS}}</tbody></table></div>
+        </div>
+        <div class="detail-grid">
+          <div class="notice"><h3>Validation notes</h3><ul>{{WARNINGS}}</ul></div>
+          <div class="notice"><h3>Fields to verify</h3><div class="tags">{{MISSING_FIELDS}}</div></div>
+        </div>
+        <p class="not-submitted">◉ This is an internal draft. It has not been submitted to a supplier.</p>
+      </section>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
