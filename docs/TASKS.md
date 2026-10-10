@@ -11,7 +11,12 @@ Supplier quotation PDF to internal order draft
 
 ## Backlog
 
-- Presentation-ready browser UI completed and verified locally
+- Presentation-ready procAi browser UI, review queue, and demo-only line
+  decisions completed
+- User workspace activated with quotation intake, overview, sent, rejected,
+  and draft sections; procurement workspace activated with same-day overview,
+  pending/validated queues, seeded demo requests, review actions, and
+  interactive queue filters
 - Local Docker deployment documented; remote deployment intentionally deferred
 
 ## Working agreement

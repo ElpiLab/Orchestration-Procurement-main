@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>procAi / Procurement</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="procurement-page">
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand__mark">P</span><span>procAi<span class="brand__muted"> / PROCUREMENT</span></span></a>
+    <div class="topbar__meta"><span class="status-dot"></span> LOCAL POC <span class="meta-divider">•</span> 2026</div>
+  </header>
+  <main class="procurement-shell">
+    <nav class="role-switcher" aria-label="Workspace audience">
+      <a class="role-card role-card--all" href="/"><span class="role-card__label">ALL</span><small>Shared workspace</small></a>
+      <a class="role-card role-card--user" href="/user"><span class="role-card__label">USER</span><small>Request workspace</small></a>
+      <a class="role-card role-card--procurement role-card--active" href="/procurement" aria-current="page"><span class="role-card__label">PROCUREMENT</span><small>Review workspace</small></a>
+    </nav>
+    <section class="procurement-workspace">
+      <div class="workspace__header"><div><p class="eyebrow eyebrow--light">PROCUREMENT WORKSPACE</p><h1>Review queue</h1></div><span class="pill pill--green">● PROCESSING LOCAL</span></div>
+      <section class="procurement-overview" aria-label="Today's order overview">
+        <div class="overview-heading"><div><p class="eyebrow eyebrow--light">TODAY · 10 OCTOBER 2026</p><h2>Order overview</h2></div><span class="overview-note">DEMO QUEUE · LOCAL ONLY</span></div>
+        <div class="overview-metrics"><div><span>Orders today</span><strong>04</strong><small>All incoming requests</small></div><div><span>Pending review</span><strong class="metric--amber">02</strong><small>Need procurement action</small></div><div><span>Validated</span><strong class="metric--green">02</strong><small>Ready for next step</small></div><div><span>Total value</span><strong>CHF 16,695</strong><small>Requested today</small></div></div>
+        <div class="queue-tabs" role="tablist" aria-label="Review queue filter">
+          <button class="queue-tab queue-tab--active" type="button" role="tab" aria-selected="true" data-queue-filter="all">All <b>04</b></button>
+          <button class="queue-tab" type="button" role="tab" aria-selected="false" data-queue-filter="pending">Pending <b>02</b></button>
+          <button class="queue-tab" type="button" role="tab" aria-selected="false" data-queue-filter="validated">Validated <b>02</b></button>
+        </div>
+      </section>
+      <section class="table-card procurement-queue">
+        <div class="table-card__header"><div><h3>Review queue</h3><small>One decision row per extracted item</small></div><span>EXTRACTED + REVIEW FIELDS</span></div>
+        <div class="table-wrap"><table><thead><tr><th>REQUEST</th><th>PRODUCT DESCRIPTION</th><th>QTY</th><th>UNIT PRICE</th><th>LINE TOTAL</th><th>STATUS</th><th>COST CENTER</th><th>DECISION</th></tr></thead><tbody data-queue-rows>{{REQUEST_ROWS}}</tbody></table></div>
+      </section>
+      <p class="action-feedback" data-email-feedback role="status" aria-live="polite">Validation creates a simulated email notification for elpidiobasile.dogbevi@students.fhnw.ch. No email is delivered.</p>
+      <p class="not-submitted">◉ Procurement actions are demo-only. No supplier order or approval is submitted.</p>
+    </section>
+  </main>
+  <script src="/static/app.js?v=2"></script>
+</body>
+</html>

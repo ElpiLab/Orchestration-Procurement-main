@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Procurement / Draftroom</title>
+  <title>procAi / Draftroom</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body class="page page--{{MODE}}">
   <header class="topbar">
     <a class="brand" href="/">
       <span class="brand__mark">P</span>
-      <span>PROCUREMENT<span class="brand__muted"> / DRAFTROOM</span></span>
+      <span>procAi<span class="brand__muted"> / DRAFTROOM</span></span>
     </a>
     <div class="topbar__meta"><span class="status-dot"></span> LOCAL POC <span class="meta-divider">•</span> 2026</div>
   </header>
@@ -31,6 +31,20 @@
     </aside>
 
     <section class="workspace">
+      <nav class="role-switcher" aria-label="Workspace audience">
+        <a class="role-card role-card--all" href="/" aria-current="page" data-role="all">
+          <span class="role-card__label">ALL</span>
+          <small>Internal draft</small>
+        </a>
+        <a class="role-card role-card--user" href="/user" data-role="user">
+          <span class="role-card__label">USER</span>
+          <small>Request workspace</small>
+        </a>
+        <a class="role-card role-card--procurement" href="/procurement" data-role="procurement">
+          <span class="role-card__label">PROCUREMENT</span>
+          <small>Coming next</small>
+        </a>
+      </nav>
       <div class="workspace__header">
         <div><p class="eyebrow eyebrow--light">{{MODE}}</p><h2>{{MODE}}</h2></div>
         <span class="pill pill--green">● PROCESSING LOCAL</span>
@@ -61,12 +75,27 @@
           <div><span>TOTAL</span><strong>{{TOTAL}}</strong></div>
         </div>
         <div class="table-card">
-          <div class="table-card__header"><h3>Line items</h3><span>EXTRACTED VALUES</span></div>
-          <div class="table-wrap"><table><thead><tr><th>PRODUCT DESCRIPTION</th><th>QTY</th><th>UNIT PRICE</th><th>LINE TOTAL</th></tr></thead><tbody>{{ITEM_ROWS}}</tbody></table></div>
+          <div class="table-card__header"><div><h3>Review queue</h3><small>One decision row per extracted item</small></div><span>EXTRACTED + REVIEW FIELDS</span></div>
+          <div class="table-wrap"><table><thead><tr><th>SUPPLIER</th><th>PRODUCT DESCRIPTION</th><th>QTY</th><th>UNIT PRICE</th><th>LINE TOTAL</th><th>ONBOARDED?</th><th>COST CENTER</th><th>DECISION</th></tr></thead><tbody>{{ITEM_ROWS}}</tbody></table></div>
         </div>
         <div class="detail-grid">
           <div class="notice"><h3>Validation notes</h3><ul>{{WARNINGS}}</ul></div>
           <div class="notice"><h3>Fields to verify</h3><div class="tags">{{MISSING_FIELDS}}</div></div>
+        </div>
+        <div class="action-card">
+          <div><p class="eyebrow eyebrow--light">NEXT ACTIONS</p><h3>Turn the draft into a controlled request</h3><p>These fields make the next review step visible without sending anything externally.</p></div>
+          <div class="action-fields">
+            <label>REQUESTER<input type="text" value="Demo buyer" data-review-field></label>
+            <label>COST CENTER<input type="text" placeholder="e.g. CC-4100" data-review-field required></label>
+            <label>NEED-BY DATE<input type="date" data-review-field></label>
+            <label>AMOUNT TO VALIDATE<input type="text" value="{{TOTAL}}" data-review-field></label>
+          </div>
+          <div class="action-buttons">
+            <button class="button button--secondary" type="button" data-action="queue">Queue for draft review <span>→</span></button>
+            <button class="button button--outline" type="button" data-action="validate">Validate required fields <span>✓</span></button>
+            <button class="button button--outline" type="button" data-action="prepare">Prepare for approval <span>→</span></button>
+          </div>
+          <p class="action-feedback" data-action-feedback>Demo actions only — no order is submitted.</p>
         </div>
         <p class="not-submitted">◉ This is an internal draft. It has not been submitted to a supplier.</p>
       </section>

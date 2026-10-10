@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>procAi / User</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="user-page">
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand__mark">P</span><span>procAi<span class="brand__muted"> / USER</span></span></a>
+    <div class="topbar__meta"><span class="status-dot"></span> LOCAL POC <span class="meta-divider">•</span> 2026</div>
+  </header>
+  <main class="user-shell">
+    <nav class="role-switcher" aria-label="Workspace audience">
+      <a class="role-card role-card--all" href="/"><span class="role-card__label">ALL</span><small>Shared workspace</small></a>
+      <a class="role-card role-card--user role-card--active" href="/user" aria-current="page"><span class="role-card__label">USER</span><small>Request workspace</small></a>
+      <a class="role-card role-card--procurement" href="/procurement"><span class="role-card__label">PROCUREMENT</span><small>Coming next</small></a>
+    </nav>
+    <section class="user-workspace">
+      <div class="workspace__header"><div><p class="eyebrow eyebrow--light">USER WORKSPACE</p><h1>Internal Draft</h1></div><span class="pill pill--green">● PROCESSING LOCAL</span></div>
+      <section class="card upload-card" data-upload-card>
+        <form action="/order-drafts" method="post" enctype="multipart/form-data" data-upload-form>
+          <label class="dropzone" for="quotation-file"><span class="dropzone__icon">↑</span><span class="dropzone__title">Drop a quotation PDF here</span><span class="dropzone__hint">or <u>browse your files</u> · text-based PDF · one file</span><span class="dropzone__filename" data-file-name>No file selected</span></label>
+          <input id="quotation-file" name="file" type="file" accept="application/pdf" required>
+          <label class="field-label" for="instructions">OPTIONAL INSTRUCTIONS</label>
+          <textarea id="instructions" name="instructions" rows="2" placeholder="e.g. Highlight anything that needs a buyer's attention"></textarea>
+          <button class="button button--primary" type="submit"><span>Create internal draft</span><span>→</span></button>
+        </form>
+      </section>
+      <section class="user-sections" aria-label="Request status">
+        <article class="user-section-card user-section-card--overview"><span class="eyebrow eyebrow--light">OVERVIEW</span><strong>Your requests at a glance</strong><p>Track drafts and requests without needing a separate procurement system.</p><div class="user-stat-row"><span><b>03</b> total requests</span><span><b>01</b> active draft</span></div></article>
+        <article class="user-section-card"><span class="eyebrow eyebrow--light">SENT</span><strong>Requests sent</strong><p>Requests that have moved to procurement review will appear here.</p><span class="empty-label">No sent requests yet</span></article>
+        <article class="user-section-card user-section-card--rejected"><span class="eyebrow eyebrow--light">REJECTED</span><strong>Requests needing changes</strong><p>Rejected requests and feedback will be shown here.</p><span class="empty-label">No rejected requests</span></article>
+        <article class="user-section-card user-section-card--draft"><span class="eyebrow eyebrow--light">DRAFTS</span><strong>Continue a draft</strong><p>Keep unfinished quotation requests visible before sending them for review.</p><button class="text-button" type="button">View draft queue →</button></article>
+      </section>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

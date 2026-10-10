@@ -5,7 +5,8 @@ the project created from this template.
 
 ## Purpose
 
-- Project name: Procurement Orchestration
+- Project name: procAi
+- Regional demo convention: quotation examples use Swiss francs (CHF).
 - User or organisational problem: Procurement users spend time manually reading supplier quotations and re-entering offer information into internal procurement documents. This project explores whether document extraction can reduce that repetitive data-entry work.
 - Intended users: Employees who need to convert a supplier quotation into an internal procurement request.
 - Project goal: Accept one supplier quotation PDF and produce a clear, structured internal order draft for the user to review.
@@ -17,14 +18,33 @@ the project created from this template.
   - Basic validation of required extracted fields and arithmetic consistency when enough data is available.
   - A structured internal order draft that clearly identifies extracted values and missing or uncertain values.
   - Human review before any real order is placed.
-  - Optional user instructions that clarify how the quotation should be transformed into the internal draft.
+  - Demo-only next actions for queueing, validating review fields, and preparing
+    a draft for a future approval step.
+  - A review queue view with supplier onboarding, cost-center, and per-line
+    validation/rejection controls.
+  - A visible role switcher for the shared, user, and procurement workspace
+    concepts.
+  - A user workspace with quotation intake plus overview, sent, rejected, and
+    draft sections.
+  - A procurement workspace with a same-day order overview and pending versus
+    validated review queue.
+  - Interactive procurement queue filters for all, pending, and validated
+    requests.
+  - A simulated validation email notification addressed to the demo recipient;
+    it does not deliver email.
 - Out of scope for this phase:
   - OCR for scanned-image PDFs, handwritten documents, or poor-quality scans.
   - Multiple quotation files or quotation comparison.
   - Catalog, SKU, stock, or ERP lookup.
   - Supplier selection, negotiation, or communication.
   - Sending or submitting an order to a supplier.
+  - Persisting queue actions or sending approval notifications; current action
+    buttons and queue filters are intentionally local demo interactions.
+  - Treating supplier onboarding or cost-center values as authoritative master
+    data; these are review inputs in the demo.
   - Approval workflows, purchasing limits, authentication, and user accounts.
+  - Role-based authentication or authorization; role views are presentation
+    surfaces for the demo only.
   - Database persistence and order history.
   - OCI Punchout and other external procurement integrations.
   - Production deployment and automated purchasing decisions.
