@@ -83,7 +83,7 @@ document.querySelectorAll("[data-row-action]").forEach((button) => {
       }
       if (statusCell) statusCell.dataset.requestStatus = "validated";
       if (emailFeedback) {
-        emailFeedback.textContent = "Validated. Demo email prepared for elpidiobasile.dogbevi@students.fhnw.ch — no email was delivered.";
+        emailFeedback.textContent = "Validated. Demo email prepared — no email was delivered.";
         emailFeedback.classList.remove("is-warning");
       }
     } else {
