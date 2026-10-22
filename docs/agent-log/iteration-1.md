@@ -1,3 +1,6 @@
+Agent evidence: bootstrap discussion for the procAi supplier-quotation
+prototype. Date: 2026-10-22. Agent: coding assistant (anonymized).
+
 Scope: Free Text
 
 I’ll update the bootstrap scope to Option B: one supplier quotation PDF becomes a validated internal order draft for human review. I’ll also update the active use case and backlog, while leaving architecture and implementation decisions for the next phase.
@@ -6,7 +9,7 @@ Edit ,
 
 Read , lines 1 to 38
 Completed with input: {
-  "path": "C:\\Users\\doelp\\Downloads\\Orchestration-Procurement-main\\Orchestration-Procurement-main\\docs\\PROJECT.md",
+  "path": "<workspace>/docs/PROJECT.md",
   "view_range": [
     1,
     38
@@ -15,7 +18,7 @@ Completed with input: {
 
 Read , lines 1 to 22
 Completed with input: {
-  "path": "C:\\Users\\doelp\\Downloads\\Orchestration-Procurement-main\\Orchestration-Procurement-main\\docs\\TASKS.md",
+  "path": "<workspace>/docs/TASKS.md",
   "view_range": [
     1,
     22

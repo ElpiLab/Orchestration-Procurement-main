@@ -18,6 +18,18 @@ Supplier quotation PDF to internal order draft
   pending/validated queues, seeded demo requests, review actions, and
   interactive queue filters
 - Local Docker deployment documented; remote deployment intentionally deferred
+- Fast Track (2026-10-20): UI color palette restyled after lhotse.de
+  (midnight `#121923`, paper `#f3f3ed`, mist `#adc1d1`, slate `#56616b`,
+  action blue `#1f63d8`). Scope: `static/styles.css` tokens only; no behavior
+  change, DESIGN skipped. Acceptance: all hard-coded colors map to palette
+  tokens; `pytest` passes; `/`, `/user`, `/procurement` visually checked.
+- Fast Track (2026-10-22): Slice 0 hygiene and UI contract. Scope: repository
+  hygiene, anonymized agent evidence, neutral notification copy, and a
+  contract test documenting the existing UI. Acceptance: no tracked bytecode,
+  no personal path or email in the agent log or UI, and the contract test plus
+  existing tests pass. DESIGN skipped because this slice does not change
+  application behavior or architecture.
+  Prompt note: step 3 already done by me, verify and skip.
 
 ## Working agreement
 

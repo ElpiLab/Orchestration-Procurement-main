@@ -89,3 +89,15 @@ Integration
 E2E  
 - Upload a representative quotation through the user interface and review the
   resulting internal order draft.
+
+## Initial entity candidates for Slice 1
+
+The bootstrap discussion identified these candidates for the next
+specification and design pass:
+
+- `UploadedQuotation`: source file metadata and quotation reference.
+- `Quotation`: supplier, reference, date, currency, and total.
+- `QuotationItem`: description, quantity, unit price, and line total.
+- `ExtractionResult`: extracted data, confidence, warnings, and missing fields.
+- `OrderDraft`: draft identity, source quotation, review status, items, and
+  validation messages.
